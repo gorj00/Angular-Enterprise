@@ -4,7 +4,7 @@ import { ContentComponent } from '../layout/content/content.component';
 const routes: Routes = [
   { path: '', component: ContentComponent, children: [
     {
-      path: '',
+      path: 'movies',
       loadChildren: () => import('../containers/movies-list/movies-list.module').then(m => m.MoviesListModule),
   }
   ]

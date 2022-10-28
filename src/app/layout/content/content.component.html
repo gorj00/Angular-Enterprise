@@ -1,9 +1,16 @@
-<mat-grid-list cols="5">
-  <h1>HELLO</h1>
+<!-- <mat-grid-list cols="5" rowHeight="100rem">
   <mat-grid-tile colspan="1">
-    <!-- <router-outlet name="sidebar"></router-outlet> -->
+    <router-outlet name="sidebar"></router-outlet>
   </mat-grid-tile>
-  <mat-grid-tile colspan="4">
-    <!-- <router-outlet></router-outlet> -->
+  <mat-grid-tile colspan="4" >
+    <router-outlet></router-outlet>
   </mat-grid-tile>
-</mat-grid-list>
+</mat-grid-list> -->
+<div class="row">
+  <div class="col-4">
+    <router-outlet name="sidebar"></router-outlet>
+  </div>
+  <div class="col-8">
+    <router-outlet></router-outlet>
+  </div>
+</div>

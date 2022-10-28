@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { MaterialModule } from './modules/material.module'
+import { RouterModule } from '@angular/router';
 
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LayoutComponent } from './layout/layout.component';
@@ -11,7 +11,8 @@ import { FooterComponent } from './layout/footer/footer.component';
 import { SidebarComponent } from './layout/sidebar/sidebar.component';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
-import { ContentModule } from './modules/content.module'
+import { ContentModule } from './modules/content.module';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
 
 @NgModule({
   declarations: [
@@ -23,13 +24,15 @@ import { ContentModule } from './modules/content.module'
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     ContentModule,
     BrowserAnimationsModule,
     MaterialModule,
+    RouterModule.forRoot([]),
     StoreModule.forRoot({}, {}),
     EffectsModule.forRoot([]),
+    NgbModule,
   ],
+  exports: [RouterModule],
   providers: [],
   bootstrap: [AppComponent]
 })
