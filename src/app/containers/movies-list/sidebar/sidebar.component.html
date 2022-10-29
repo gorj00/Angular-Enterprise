@@ -1,1 +1,9 @@
-<h1>movies sidebar works</h1>
+<mat-card>
+  <h2>Movie genres</h2>
+  <mat-list>
+    <mat-list-item *ngFor="let gen of genres">
+      <mat-icon mat-list-icon>folder</mat-icon>
+      <div mat-line>{{ gen.name }}</div>
+    </mat-list-item>
+  </mat-list>
+</mat-card>
