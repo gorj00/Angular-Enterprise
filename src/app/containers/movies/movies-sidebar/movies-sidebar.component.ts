@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-sidebar',
-  templateUrl: './sidebar.component.html',
-  styleUrls: ['./sidebar.component.less']
+  selector: 'app-movies-sidebar',
+  templateUrl: './movies-sidebar.component.html',
+  styleUrls: ['./movies-sidebar.component.less']
 })
-export class SidebarComponent implements OnInit {
+export class MoviesSidebarComponent implements OnInit {
   genres: { name: string }[] = [
     {name: 'Action'},
     {name: 'Comedy'},

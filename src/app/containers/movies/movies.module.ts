@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MaterialModule } from '../../modules/material.module'
-import { MoviesListRoutingModule } from './movies-list-routing.module'
-import { ListComponent } from './/list/list.component';
-import { SidebarComponent } from './sidebar/sidebar.component';
+import { MoviesListRoutingModule } from './movies-routing.module'
+import { MoviesListComponent } from './movies-list/movies-list.component';
+import { MoviesSidebarComponent } from './movies-sidebar/movies-sidebar.component';
 
 @NgModule({
   declarations: [
-    ListComponent,
-    SidebarComponent,
+    MoviesListComponent,
+    MoviesSidebarComponent,
   ],
   imports: [
     CommonModule,

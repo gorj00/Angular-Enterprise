@@ -5,7 +5,7 @@ const routes: Routes = [
   { path: '', component: ContentComponent, children: [
     {
       path: 'movies',
-      loadChildren: () => import('../containers/movies-list/movies-list.module').then(m => m.MoviesListModule),
+      loadChildren: () => import('../containers/movies/movies.module').then(m => m.MoviesListModule),
     }
   ]
  }
