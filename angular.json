@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "activity-planner": {
+    "angular-demonstration": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/activity-planner",
+            "outputPath": "dist/angular-demonstration",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -71,10 +71,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "activity-planner:build:production"
+              "browserTarget": "angular-demonstration:build:production"
             },
             "development": {
-              "browserTarget": "activity-planner:build:development"
+              "browserTarget": "angular-demonstration:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -82,7 +82,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "activity-planner:build"
+            "browserTarget": "angular-demonstration:build"
           }
         },
         "test": {

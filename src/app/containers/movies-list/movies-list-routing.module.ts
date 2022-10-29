@@ -1,9 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ListComponent } from './list/list.component'
+import { SidebarComponent } from './sidebar/sidebar.component'
 
 const routes: Routes = [
-  { path: '', component: ListComponent,  }
+  { path: '', component: SidebarComponent, outlet: 'sidebar' },
+  { path: '', component: ListComponent,  },
+
 ];
 
 @NgModule({

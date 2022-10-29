@@ -6,7 +6,7 @@ const routes: Routes = [
     {
       path: 'movies',
       loadChildren: () => import('../containers/movies-list/movies-list.module').then(m => m.MoviesListModule),
-  }
+    }
   ]
  }
 ];
