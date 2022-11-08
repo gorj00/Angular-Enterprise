@@ -1,25 +1,19 @@
 import { Component, OnInit } from '@angular/core';
+import { MoviesContainer } from '../movies.container'
+import { MoviesFacade } from '../../../store/movies/movies.facade'
 
 @Component({
   selector: 'app-movies-sidebar',
   templateUrl: './movies-sidebar.component.html',
   styleUrls: ['./movies-sidebar.component.less']
 })
-export class MoviesSidebarComponent implements OnInit {
-  genres: { name: string }[] = [
-    {name: 'Action'},
-    {name: 'Comedy'},
-    {name: 'Drama'},
-    {name: 'Fantasy'},
-    {name: 'Horror'},
-    {name: 'Mystery'},
-    {name: 'Romance'},
-    {name: 'Thriller'},
-  ]
-
+export class MoviesSidebarComponent extends MoviesContainer implements OnInit {
   users: string[] = ['John', 'Maria', 'Stan'];
 
-  constructor() { }
+  constructor(facade: MoviesFacade) {
+    super(facade);
+    this.initialGenresFetch();
+  }
 
   ngOnInit(): void {
   }

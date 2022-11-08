@@ -2,20 +2,17 @@ import { HttpService } from './http.service'; // service injected imported
 import { Injectable, Inject } from '@angular/core'; // Injectable() imported
 import { HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { IMoviesResponse } from '../models/movies.models';
+import { IMoviesResponse, IGenreListResponse } from '../models/movies.models';
 
 @Injectable()
 export class MoviesService {
 
   paths = {
-    genre: 'genre/movie/list',
+    genreList: 'genre/movie/list',
     discoverList: 'discover/movie',
   }
 
-  constructor(
-    private http: HttpService,
-    @Inject('apiUrl') private apiUrl?: string
-  ) {}
+  constructor(private http: HttpService) {}
 
   reqUrl(appendUrl?: string) {
     // Base is injected
@@ -25,10 +22,14 @@ export class MoviesService {
     return url
   }
 
-  getGenreList(genreId: number, page: number = 1): Observable<IMoviesResponse> {
+  getGenreMoviesList(genreId: number, page: number = 1): Observable<IMoviesResponse> {
     const params = new HttpParams().append('with_genres', genreId)
                                    .append('page', page);
     return this.http.Get(this.reqUrl(this.paths.discoverList), { params })
+  }
+
+  getGenreList(): Observable<IGenreListResponse> {
+    return this.http.Get(this.reqUrl(this.paths.genreList))
   }
 
 }

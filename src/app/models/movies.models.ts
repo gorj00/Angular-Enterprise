@@ -17,6 +17,7 @@ export interface IMovie {
 
 export interface IMoviesState {
   movies:        IMovie[];
+  genres:        IGenre[];
   moviesPage:    number | null;
   moviesTotal:   number | null;
   moviesGenreId: number | null;
@@ -29,4 +30,13 @@ export interface IMoviesResponse {
   results:       IMovie[];
   total_pages:   number;
   total_results?: number;
+}
+
+export interface IGenre {
+  id:   number;
+  name: string;
+}
+
+export interface IGenreListResponse {
+  genres: IGenre[];
 }

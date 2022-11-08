@@ -9,15 +9,27 @@ import { of } from 'rxjs';
 export class MoviesEffects {
   moviesByGenreIdEffect$ = createEffect(() =>
     this.actions$.pipe(
-      ofType(MoviesActions.genre_list_request),
-      mergeMap(({ genreId, page }) => {
-        return this.moviesService.getGenreList(genreId, page).pipe(
+      ofType(MoviesActions.genre_movies_list_request),
+      mergeMap(({ genreId, page }) => this.moviesService.getGenreMoviesList(genreId, page)
+        .pipe(
           map((response) =>
-            MoviesActions.genre_list_response( response.results, response.total_pages)
+            MoviesActions.genre_movies_list_response(response.results, response.total_pages)
           ),
-          catchError((error) => of(MoviesActions.genre_list_failure(error)))
-        );
-      })
+          catchError((error) => of(MoviesActions.genre_movies_list_failure(error)))
+        )
+      )
+    )
+  );
+
+  genresListEffect$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(MoviesActions.genre_list_request),
+      mergeMap(() => this.moviesService.getGenreList()
+        .pipe(
+          map((response) => MoviesActions.genre_list_response(response.genres)),
+          catchError((error) => of(MoviesActions.genre_movies_list_failure(error)))
+        )
+      )
     )
   );
 

@@ -26,7 +26,7 @@ import { moviesFeature } from '../../store/movies/movies.feature'
   providers: [
     HttpService,
     MoviesService,
-    {provide: 'apiUrl', useValue: 'https://api.themoviedb.org/4/'},
+    {provide: 'apiUrl', useValue: 'https://api.themoviedb.org/3/'},
   ],
   bootstrap: []
 })
