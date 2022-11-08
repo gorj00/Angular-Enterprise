@@ -11,6 +11,9 @@
       A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
       bred for hunting.
     </p>
+    <div *ngFor="let movie of movies$ | async">
+      {{ movie.original_title }}
+    </div>
   </mat-card-content>
   <mat-card-actions>
     <button mat-button>LIKE</button>

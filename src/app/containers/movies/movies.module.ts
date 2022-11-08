@@ -2,8 +2,14 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MaterialModule } from '../../modules/material.module'
 import { MoviesListRoutingModule } from './movies-routing.module'
-import { MoviesListComponent } from './movies-list/movies-list.component';
-import { MoviesSidebarComponent } from './movies-sidebar/movies-sidebar.component';
+import { MoviesListComponent } from './movies-list/movies-list.component'
+import { MoviesSidebarComponent } from './movies-sidebar/movies-sidebar.component'
+import { EffectsModule } from '@ngrx/effects'
+import { MoviesEffects } from '../../store/movies/movies.effects'
+import { MoviesService } from '../../services/movies.service'
+import { HttpService } from '../../services/http.service'
+import { StoreModule } from '@ngrx/store'
+import { moviesFeature } from '../../store/movies/movies.feature'
 
 @NgModule({
   declarations: [
@@ -14,8 +20,14 @@ import { MoviesSidebarComponent } from './movies-sidebar/movies-sidebar.componen
     CommonModule,
     MoviesListRoutingModule,
     MaterialModule,
+    StoreModule.forFeature(moviesFeature),
+    EffectsModule.forFeature([MoviesEffects]),
   ],
-  providers: [],
+  providers: [
+    HttpService,
+    MoviesService,
+    {provide: 'apiUrl', useValue: 'https://api.themoviedb.org/4/'},
+  ],
   bootstrap: []
 })
 export class MoviesListModule { }
