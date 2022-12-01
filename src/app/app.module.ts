@@ -38,7 +38,7 @@ import { environment } from '../environments/environment';
     NgbModule,
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
   ],
-  exports: [RouterModule],
+  exports: [RouterModule, CoreModule],
   providers: [],
   bootstrap: [AppComponent]
 })

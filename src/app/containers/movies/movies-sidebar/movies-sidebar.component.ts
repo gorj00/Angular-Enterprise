@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { MoviesContainer } from '../movies.container'
 import { MoviesFacade } from '../../../store/movies/movies.facade'
 
@@ -8,11 +8,17 @@ import { MoviesFacade } from '../../../store/movies/movies.facade'
   styleUrls: ['./movies-sidebar.component.less']
 })
 export class MoviesSidebarComponent extends MoviesContainer implements OnInit {
+
+
   users: string[] = ['John', 'Maria', 'Stan'];
 
   constructor(facade: MoviesFacade) {
     super(facade);
     this.initialGenresFetch();
+  }
+
+  onSelectGenre(genreId: number | null) {
+    this.onGenreSelected(genreId)
   }
 
   ngOnInit(): void {
