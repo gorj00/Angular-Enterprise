@@ -9,12 +9,16 @@ export class SidebarListItemComponent implements OnInit {
   @Input() text: string = '';
   @Input() icon: string = '';
   @Input() emitData: any;
-  @Output() onClicked = new EventEmitter<number | null>();
+  @Output() onClicked = new EventEmitter<number | void>();
 
   constructor() { }
 
   onClick() {
-    this.onClicked.emit(this.emitData ? this.emitData : null)
+    if (this.emitData) {
+      this.onClicked.emit(this.emitData)
+    } else {
+      this.onClicked.emit()
+    }
   }
 
   ngOnInit(): void {

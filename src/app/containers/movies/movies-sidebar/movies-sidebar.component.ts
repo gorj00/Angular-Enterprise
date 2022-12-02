@@ -14,14 +14,14 @@ export class MoviesSidebarComponent extends MoviesContainer implements OnInit {
 
   constructor(facade: MoviesFacade) {
     super(facade);
-    this.initialGenresFetch();
   }
 
-  onSelectGenre(genreId: number | null) {
-    this.onGenreSelected(genreId)
+  onSelectGenre(genreId: number | void) {
+    genreId && this.onGenreSelected(genreId)
   }
 
   ngOnInit(): void {
+    this.initialGenresFetch()
   }
 
 }

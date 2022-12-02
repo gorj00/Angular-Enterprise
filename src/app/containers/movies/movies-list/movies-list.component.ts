@@ -12,7 +12,6 @@ export class MoviesListComponent extends MoviesContainer implements OnInit {
 
   constructor(facade: MoviesFacade, private moviesService: MoviesService) {
     super(facade);
-    this.initialMoviesFetch();
   }
 
   imgUrl(path: string | undefined): string {
