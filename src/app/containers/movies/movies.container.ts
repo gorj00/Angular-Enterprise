@@ -50,20 +50,20 @@ export class MoviesContainer {
   )
 
   data$ = combineLatest(
-    this.moviesOfGenreAndPage$,
+    // this.moviesOfGenreAndPage$,
     this.moviesFacade.genres$,
     this.genreSelectedPairHistory$,
     this.pageSelected$,
   ).pipe(
     map((
-      [movies, genres, genreSelectedPairHistory, pageSelected]
+      [/* movies,  */genres, genreSelectedPairHistory, pageSelected]
       ) => {
         const [prevGenreId, currentGenreId] = genreSelectedPairHistory
         console.log({
-          movies, genres, currentGenreId, pageSelected
+          /* movies,  */genres, currentGenreId, pageSelected
         })
         return ({
-      movies, genres, currentGenreId, pageSelected
+      /* movies,  */genres, currentGenreId, pageSelected
     })})
   )
 
