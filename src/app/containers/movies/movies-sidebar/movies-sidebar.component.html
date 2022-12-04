@@ -1,11 +1,12 @@
 <mat-card *ngIf="sidebarData$ | async as sidebarData">
   <h2>Movie genres</h2>
   <mat-list>
-    <app-sidebar-list-item *ngFor="let gen of sidebarData.genres"
+    <app-sidebar-list-item *ngFor="let gen of sidebarData.genres; index as i"
       [text]="gen.name"
       [icon]="'folder'"
       [emitData]="gen.id"
       (onClicked)="onSelectGenre($event)"
+      [isBold]="sidebarData.params.genreId === i"
     ></app-sidebar-list-item>
   </mat-list>
 </mat-card>

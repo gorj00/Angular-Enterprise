@@ -23,7 +23,7 @@ export class MoviesSidebarComponent implements OnInit {
   }
 
   get sidebarData$() {
-    return this.moviesDataService.sidebarData$
+    return this.moviesDataService.data$
   }
 
   ngOnInit(): void {

@@ -9,6 +9,7 @@ import { Component, OnInit, Input, Output, EventEmitter, ChangeDetectionStrategy
 export class SidebarListItemComponent implements OnInit {
   @Input() text: string = '';
   @Input() icon: string = '';
+  @Input() isBold: boolean = false;
   @Input() emitData: any;
   @Output() onClicked = new EventEmitter<number | void>();
 

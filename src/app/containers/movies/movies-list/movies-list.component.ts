@@ -17,16 +17,13 @@ export class MoviesListComponent implements OnInit {
   }
 
   get listData$() {
-    return this.moviesDataService.listData$
+    return this.moviesDataService.data$
   }
 
   imgUrl(path: string | undefined): string {
     return this.moviesService.reqUrl(path)
   }
 
-  ngOnInit(): void {
-    this.moviesDataService.genreSelectedPairHistory$.subscribe(val => console.log('SUBSCRIBE', val))
-    // this.genreSelectedSubject.asObservable().subscribe(val => console.log('SUBSCRIBE 2', val))
-  }
+  ngOnInit(): void {}
 
 }
