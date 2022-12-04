@@ -12,7 +12,7 @@ import { HttpService } from '../../services/http.service'
 import { StoreModule } from '@ngrx/store'
 import { SharedModule } from '../../modules/shared.module'
 import { moviesFeature } from '../../store/movies/movies.feature'
-
+import { MoviesDataService } from './movies-data.service'
 @NgModule({
   declarations: [
     MoviesListComponent,
@@ -30,6 +30,7 @@ import { moviesFeature } from '../../store/movies/movies.feature'
   providers: [
     HttpService,
     MoviesService,
+    MoviesDataService,
     {provide: 'apiUrl', useValue: 'https://api.themoviedb.org/3/'},
   ],
   bootstrap: []

@@ -1,7 +1,7 @@
-<mat-card *ngIf="data$ | async as data">
+<mat-card *ngIf="sidebarData$ | async as sidebarData">
   <h2>Movie genres</h2>
   <mat-list>
-    <app-sidebar-list-item *ngFor="let gen of data.genres"
+    <app-sidebar-list-item *ngFor="let gen of sidebarData.genres"
       [text]="gen.name"
       [icon]="'folder'"
       [emitData]="gen.id"

@@ -22,6 +22,7 @@ export interface IMoviesState {
   moviesTotal:   number | null;
   moviesGenreId: number | null;
   loading:       boolean;
+  loadingEntity: string | number | null;
   errors:        any;
 }
 

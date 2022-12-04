@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { MoviesContainer } from '../movies.container'
+import { MoviesDataService } from '../movies-data.service'
 import { MoviesFacade } from '../../../store/movies/movies.facade'
 
 @Component({
@@ -7,21 +7,27 @@ import { MoviesFacade } from '../../../store/movies/movies.facade'
   templateUrl: './movies-sidebar.component.html',
   styleUrls: ['./movies-sidebar.component.less']
 })
-export class MoviesSidebarComponent extends MoviesContainer implements OnInit {
+export class MoviesSidebarComponent implements OnInit {
 
 
   users: string[] = ['John', 'Maria', 'Stan'];
 
-  constructor(facade: MoviesFacade) {
-    super(facade);
+  constructor(
+    private moviesfacade: MoviesFacade,
+    private moviesDataService: MoviesDataService,
+  ) {
   }
 
   onSelectGenre(genreId: number | void) {
-    genreId && this.onGenreSelected(genreId)
+    genreId && this.moviesDataService.onGenreSelected(genreId)
+  }
+
+  get sidebarData$() {
+    return this.moviesDataService.sidebarData$
   }
 
   ngOnInit(): void {
-    this.initialGenresFetch()
+    this.moviesDataService.initialGenresFetch()
   }
 
 }

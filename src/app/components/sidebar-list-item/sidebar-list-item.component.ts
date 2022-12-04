@@ -1,9 +1,10 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
   selector: 'app-sidebar-list-item',
   templateUrl: './sidebar-list-item.component.html',
-  styleUrls: ['./sidebar-list-item.component.less']
+  styleUrls: ['./sidebar-list-item.component.less'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SidebarListItemComponent implements OnInit {
   @Input() text: string = '';

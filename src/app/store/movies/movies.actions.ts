@@ -9,7 +9,10 @@ enum actionTypes {
   GENRE_LIST_REQUEST = 'GENRE_LIST_REQUEST',
   GENRE_LIST_RESPONSE = 'GENRE_LIST_RESPONSE',
   GENRE_LIST_FAILURE = 'GENRE_LIST_FAILURE',
+}
 
+export enum moviesEntities {
+  MOVIES = 'MOVIES', GENRES = 'GENRES',
 }
 
 export const MoviesActions = createActionGroup({

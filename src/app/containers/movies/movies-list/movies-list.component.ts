@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MoviesContainer } from '../movies.container'
+import { MoviesDataService } from '../movies-data.service'
 import { MoviesFacade } from '../../../store/movies/movies.facade'
 import { MoviesService } from '../../../services/movies.service'
 
@@ -8,10 +8,16 @@ import { MoviesService } from '../../../services/movies.service'
   templateUrl: './movies-list.component.html',
   styleUrls: ['./movies-list.component.less']
 })
-export class MoviesListComponent extends MoviesContainer implements OnInit {
+export class MoviesListComponent implements OnInit {
 
-  constructor(facade: MoviesFacade, private moviesService: MoviesService) {
-    super(facade);
+  constructor(
+    private moviesFacade: MoviesFacade,
+    private moviesService: MoviesService,
+    private moviesDataService: MoviesDataService,) {
+  }
+
+  get listData$() {
+    return this.moviesDataService.listData$
   }
 
   imgUrl(path: string | undefined): string {
@@ -19,6 +25,8 @@ export class MoviesListComponent extends MoviesContainer implements OnInit {
   }
 
   ngOnInit(): void {
+    this.moviesDataService.genreSelectedPairHistory$.subscribe(val => console.log('SUBSCRIBE', val))
+    // this.genreSelectedSubject.asObservable().subscribe(val => console.log('SUBSCRIBE 2', val))
   }
 
 }
