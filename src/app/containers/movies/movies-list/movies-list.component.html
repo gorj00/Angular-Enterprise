@@ -1,6 +1,6 @@
 <div class="row">
   <ng-container *ngIf="listData$ | async as listData">
-    
+
     <ng-template [ngIf]="listData.movies && !listData.moviesLoading" [ngIfElse]="spinner">
       <div class="col-4 pb-5" *ngFor="let movie of listData.movies">
         <mat-card class="example-card" >
@@ -11,9 +11,7 @@
           </mat-card-header>
           <img mat-card-image [src]="'https://image.tmdb.org/t/p/w500/' + movie.backdrop_path" alt="Photo of a Shiba Inu">
           <mat-card-content>
-            <p>
-              {{ movie.overview }}
-            </p>
+            <p>{{ movie.overview }}</p>
           </mat-card-content>
           <mat-card-actions>
             <button mat-button>LIKE</button>

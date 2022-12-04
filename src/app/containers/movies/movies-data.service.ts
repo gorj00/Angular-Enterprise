@@ -46,12 +46,10 @@ export class MoviesDataService {
     map(([genreId, page]) => {
       if (genreId && page) {
         this.moviesFacade.fetchMoviesByGenreId(
-          page,
-          genreId,
+          page,genreId,
         )
       }
       return ({ genreId, page})
-
     }),
     shareReplay({ refCount: true, bufferSize: 1}),
   )
